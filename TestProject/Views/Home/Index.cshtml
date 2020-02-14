@@ -1,0 +1,19 @@
+﻿@model IEnumerable<Car>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach(var car in Model)
+        {
+        <div class="col-4">
+            <img src="@car.Img" class="img-thumbnail" />
+            <h3>Model: @car.Name</h3>
+            <h4>Price: @car.Price.ToString("c")</h4>
+            <a class="btn btn-warning">Add To Cart</a>
+        </div>
+        }
+    </div>
+</div>
+
