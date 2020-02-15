@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using TestProject.Data;
 using TestProject.Data.Interfaces;
 using TestProject.Data.Mocks;
+using TestProject.Data.Models;
 using TestProject.Data.Repository;
 
 namespace TestProject
@@ -30,7 +31,11 @@ namespace TestProject
         {
             services.AddDbContext<AppDbContent>(op => op.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllCars, CarRepository>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(op => Cart.GetCartName(op));
             services.AddMvc();
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +45,7 @@ namespace TestProject
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSession();
             app.UseStaticFiles();
             app.UseRouting();
 

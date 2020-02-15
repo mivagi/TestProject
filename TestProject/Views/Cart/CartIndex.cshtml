@@ -1,0 +1,16 @@
+﻿@model TestProject.Data.Models.Cart
+@{
+    ViewData["Title"] = "CartIndex";
+}
+
+<div class="container">
+    @foreach(var el in Model.ListItems)
+    {
+        <div class="row">
+            <p>@el.Car.Name</p>
+            <p>@el.Car.Price.ToString("c")</p>
+        </div>
+    }
+    <a class="btn btn-danger">Buy</a>
+</div>
+
