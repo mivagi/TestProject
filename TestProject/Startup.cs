@@ -31,6 +31,8 @@ namespace TestProject
             services.AddDbContext<AppDbContent>(op => op.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllCars, CarRepository>();
             services.AddMvc();
+            services.AddMemoryCache();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -40,6 +42,8 @@ namespace TestProject
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStatusCodePages();
+            app.UseSession();
             app.UseStaticFiles();
             app.UseRouting();
 
