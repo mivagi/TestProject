@@ -14,5 +14,8 @@ namespace TestProject.Data
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetaile> OrderDetailes { get; set; }
     }
 }
+
