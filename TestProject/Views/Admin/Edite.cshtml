@@ -1,0 +1,41 @@
+﻿@model Car
+@{
+    ViewData["Title"] = "Edite";
+}
+
+    <form asp-action="Edite" method="post">
+        <div class="form-group">
+            <input type="hidden" asp-for="@Model.Id" />
+        </div>
+        @*<div class="form-group">
+            <img src="@Model.Img" width="100" />
+            <div class="col-12">
+                <input name="Img" value="@Model.Img" class="form-control"/>
+                <span asp-validation-for="Img" class="text-danger"></span>
+            </div>
+        </div>*@
+        <div class="form-group">
+            <label asp-for="Img"></label>
+            <div class="col-12">
+                <input asp-for="Img" class="form-control" />
+                <span asp-validation-for="Img" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Name"></label>
+            <div class="col-12">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Price"></label>
+            <div class="col-12">
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger">Save</button>
+        <a asp-action="Index" class="btn btn-danger">Cancel</a>
+    </form>
+

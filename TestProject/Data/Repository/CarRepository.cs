@@ -16,5 +16,32 @@ namespace TestProject.Data.Repository
             this.content = content;
         }
         public IEnumerable<Car> Cars => content.Cars;
+
+        public void Create(Car car)
+        {
+            if(car.Id == 0)
+            {
+                content.Cars.Add(car);
+            }
+            else
+            {
+                Car createCar = content.Cars.FirstOrDefault(p => p.Id == car.Id);
+                if (createCar != null)
+                {
+                    createCar.Img = car.Img;
+                    createCar.Name = car.Name;
+                    createCar.Price = car.Price;
+                }
+            }
+            
+            content.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            Car deleteCar = content.Cars.FirstOrDefault(p => p.Id == id);
+            content.Cars.Remove(deleteCar);
+            content.SaveChanges();
+        }
     }
 }

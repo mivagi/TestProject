@@ -9,5 +9,7 @@ namespace TestProject.Data.Interfaces
     public interface IAllCars
     {
         IEnumerable<Car> Cars { get; }
+        void Create(Car car);
+        void Delete(int id);
     }
 }
