@@ -2,7 +2,7 @@
 
 namespace TestProject.Migrations
 {
-    public partial class TestMaster : Migration
+    public partial class TestMaster2 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,8 +27,8 @@ namespace TestProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Adress = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Adress = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {

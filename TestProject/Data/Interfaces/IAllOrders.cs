@@ -8,7 +8,9 @@ namespace TestProject.Data.Interfaces
 {
     public interface IAllOrders
     {
-        //IEnumerable<Order> Orders { get; }
+        IEnumerable<Order> Orders { get; }
         void CreateOrder(Order order);
+        List<Order> GetOrder();
+        List<Order> ListOrder { get; set; }
     }
 }

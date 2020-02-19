@@ -18,7 +18,7 @@ namespace TestProject.Data.Repository
             this.content = content;
             this.cart = cart;
         }
-        //public IEnumerable<Order> Orders => content.Orders.Include(p => p.OrderDetailes);
+        public IEnumerable<Order> Orders => content.Orders.Include(p => p.OrderDetailes);
 
         public void CreateOrder(Order order)
         {
@@ -34,6 +34,11 @@ namespace TestProject.Data.Repository
                         });
                 }
             content.SaveChanges();
+        }
+        public List<Order> ListOrder { get; set; }
+        public List<Order> GetOrder()
+        {
+            return content.Orders.Include(p => p.OrderDetailes).ToList();
         }
     }
 }

@@ -10,8 +10,8 @@ using TestProject.Data;
 namespace TestProject.Migrations
 {
     [DbContext(typeof(AppDbContent))]
-    [Migration("20200218093828_TestMaster")]
-    partial class TestMaster
+    [Migration("20200218130838_TestMaster2")]
+    partial class TestMaster2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,9 +70,11 @@ namespace TestProject.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Adress")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

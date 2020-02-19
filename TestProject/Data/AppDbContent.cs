@@ -11,6 +11,7 @@ namespace TestProject.Data
     {
         public AppDbContent(DbContextOptions<AppDbContent> options) : base(options)
         {
+
         }
         public DbSet<Car> Cars { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
@@ -18,4 +19,3 @@ namespace TestProject.Data
         public DbSet<OrderDetaile> OrderDetailes { get; set; }
     }
 }
-
