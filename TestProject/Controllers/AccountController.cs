@@ -29,17 +29,23 @@ namespace TestProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await userManager.FindByNameAsync(model.Name);
-                if(user != null)
+                var result = await signInManager.PasswordSignInAsync(model.Name, model.Password, false, false);
+                if (result.Succeeded)
                 {
-                    await signInManager.SignOutAsync();
-                    if((await signInManager.PasswordSignInAsync(user, model.Password, false, false)).Succeeded)
+                    if(!string.IsNullOrEmpty(model.ReturnUrl) && Url.IsLocalUrl(model.ReturnUrl))
                     {
-                        return Redirect(model?.ReturnUrl ?? "Admin/Index");
+                        return Redirect(model.ReturnUrl);
+                    }
+                    else
+                    {
+                        return RedirectToAction("Index", "Home");
                     }
                 }
+                else
+                {
+                    ModelState.AddModelError("", "Error");
+                }
             }
-            ModelState.AddModelError("", "Error");
             return View(model);
         }
     }
