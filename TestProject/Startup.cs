@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,7 +21,6 @@ namespace TestProject
     public class Startup
     {
         private readonly IConfiguration config;
-
         public Startup(IConfiguration config)
         {
             this.config = config;
@@ -30,6 +30,8 @@ namespace TestProject
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<AppDbContent>(op => op.UseSqlServer(config.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<AppIdentityDbContent>(op => op.UseSqlServer(config.GetConnectionString("IdentityConnection")));
+            services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContent>();
             services.AddTransient<IAllCars, CarRepository>();
             services.AddTransient<IAllOrders, OrderRepository>();
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
@@ -48,7 +50,11 @@ namespace TestProject
             }
             app.UseSession();
             app.UseStaticFiles();
+
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
