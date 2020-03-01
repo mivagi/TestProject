@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using TestProject.Data;
 using TestProject.Data.Interfaces;
 using TestProject.Data.Mocks;
+using TestProject.Data.Models;
 using TestProject.Data.Repository;
 
 namespace TestProject
@@ -30,6 +31,8 @@ namespace TestProject
         {
             services.AddDbContext<AppDbContent>(op => op.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllCars, CarRepository>();
+            services.AddScoped<Cart>(sp => CartSession.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();
