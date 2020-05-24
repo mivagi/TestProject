@@ -31,7 +31,7 @@ namespace TestProject
         {
             services.AddDbContext<AppDbContent>(op => op.UseSqlServer(config.GetConnectionString("DefaultConnection")));
             services.AddTransient<IAllCars, CarRepository>();
-            services.AddScoped<Cart>(sp => CartSession.GetCart(sp));
+            services.AddScoped(sp => Cart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddMvc();
             services.AddMemoryCache();

@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace TestProject.Data.Infrastructure
 {
+    //Этот класс расширяет интерфейс ISession
+    //дает возможность записи данных в строку
     public static class SessionExtensions
     {
         public static void SetJson(this ISession session, string key, object value)
