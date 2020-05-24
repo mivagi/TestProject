@@ -9,5 +9,6 @@ namespace TestProject.Data.Interfaces
     public interface IAllCars
     {
         IEnumerable<Car> Cars { get; }
+        IEnumerable<Car> Category { get; }
     }
 }

@@ -7,7 +7,7 @@ using TestProject.Data.Models;
 
 namespace TestProject.Data.Mocks
 {
-    public class MockCars : IAllCars
+    public class MockCars //: IAllCars
     {
         public IEnumerable<Car> Cars
         {

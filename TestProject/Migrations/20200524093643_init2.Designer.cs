@@ -9,8 +9,8 @@ using TestProject.Data;
 namespace TestProject.Migrations
 {
     [DbContext(typeof(AppDbContent))]
-    [Migration("20200214135200_TestProject")]
-    partial class TestProject
+    [Migration("20200524093643_init2")]
+    partial class init2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,6 +27,9 @@ namespace TestProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Img")
                         .HasColumnType("nvarchar(max)");
 
@@ -38,7 +41,33 @@ namespace TestProject.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("CategoryId");
+
                     b.ToTable("Cars");
+                });
+
+            modelBuilder.Entity("TestProject.Data.Models.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("TestProject.Data.Models.Car", b =>
+                {
+                    b.HasOne("TestProject.Data.Models.Category", "Category")
+                        .WithMany("Cars")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

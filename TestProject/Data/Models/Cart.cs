@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TestProject.Data.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace TestProject.Data.Models
 {

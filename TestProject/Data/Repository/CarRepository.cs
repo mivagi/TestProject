@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,5 +17,6 @@ namespace TestProject.Data.Repository
             this.content = content;
         }
         public IEnumerable<Car> Cars => content.Cars;
+        public IEnumerable<Car> Category => content.Cars.Include(p => p.Category);
     }
 }

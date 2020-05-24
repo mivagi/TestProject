@@ -52,7 +52,11 @@ namespace TestProject
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapDefaultControllerRoute();
+                endpoints.MapControllerRoute(name:"default", pattern:"{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllerRoute(name:"category", pattern:"Category/{action=List}/{category?}",
+                    defaults: new { Controllers = "Category", Action = "List" }
+                    );
+                //endpoints.MapDefaultControllerRoute();
             });
 
             using(var scope = app.ApplicationServices.CreateScope())

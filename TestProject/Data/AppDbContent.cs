@@ -13,5 +13,6 @@ namespace TestProject.Data
         {
         }
         public DbSet<Car> Cars { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
