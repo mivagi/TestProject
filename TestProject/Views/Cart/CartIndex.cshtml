@@ -3,8 +3,24 @@
     ViewData["Title"] = "CartIndex";
 }
 
+<div class="container">
+    <table class="table">
+        <tr><th>Model</th><th>Price</th><th>Quantity</th></tr>
+        @foreach (var car in Model.Lines)
+        {
+            <tr>
+                <td>@car.Car.Name</td>
+                <td>@car.Car.Price.ToString("c")</td>
+                <td>@car.Quantity</td>
+            </tr>
+        }
+    </table>
+    <a asp-action="Checkout" asp-controller="Order" class="btn btn-warning">Checkout</a>
+</div>
 
-    <div class="container">
+
+
+    @*<div class="container">
         @foreach (var car in Model.Lines)
         {
             <div class="row">
@@ -16,6 +32,6 @@
                 
             </div>
         }
-        <a asp-action="" asp-controller="" class="btn btn-warning">Buy</a>
-    </div>
+        <a asp-action="" asp-controller="" class="btn btn-warning">Checkout</a>
+    </div>*@
 

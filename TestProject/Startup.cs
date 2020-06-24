@@ -35,6 +35,7 @@ namespace TestProject
             services.AddTransient<IAllCars, CarRepository>();
             services.AddScoped(sp => Cart.GetCart(sp));
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddTransient<IOrders, OrderRepository>();
             services.AddMvc();
             services.AddMemoryCache();
             services.AddSession();

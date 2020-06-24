@@ -30,7 +30,7 @@ namespace TestProject.Data.Models
             if (item == null)
             {
                 cartCollection.Add(
-                    new CartItem { Car = car, Quantity = quartity }
+                    new CartItem { Car = car, Quantity = quartity, Name = car.Name }
                     );
             }
             else

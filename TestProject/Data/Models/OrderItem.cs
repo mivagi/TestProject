@@ -5,11 +5,13 @@ using System.Threading.Tasks;
 
 namespace TestProject.Data.Models
 {
-    public class CartItem
+    public class OrderItem
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Car Car { get; set; }
         public int Quantity { get; set; }
+        public Car Car { get; set; }
+        public int OrderId { get; set; }
+        public Order Order { get; set; }
     }
 }
