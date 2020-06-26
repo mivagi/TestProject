@@ -10,5 +10,7 @@ namespace TestProject.Data.Interfaces
     {
         IEnumerable<Car> Cars { get; }
         IEnumerable<Car> Category { get; }
+        void CreateCar(Car car);
+        void DeleteCar(int id);
     }
 }

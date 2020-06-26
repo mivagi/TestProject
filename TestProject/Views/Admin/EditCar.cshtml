@@ -1,0 +1,36 @@
+﻿@model Car
+@{
+    ViewData["Title"] = "EditCar";
+}
+
+<h1>EditCar</h1>
+<div class="container">
+    <form method="post" asp-action="EditCar">
+        <input type="hidden" asp-for="Id" />
+        <div>
+            <label asp-for="Name">@Model.Name</label>
+            <div><span asp-validation-for="Name" class="text-danger"></span></div>
+            <input asp-for="Name" />
+        </div>
+        <div>
+            <label asp-for="Img">@Model.Img</label>
+            <div><span asp-validation-for="Img" class="text-danger"></span></div>
+            <input asp-for="Img" />
+        </div>
+        <div>
+            <label asp-for="Price">@Model.Price</label>
+            <div><span asp-validation-for="Price" class="text-danger"></span></div>
+            <input asp-for="Price" />
+        </div>
+        <div>
+            <label asp-for="Category.Name">Категория@*@Model.Category.Name*@</label>
+            <div><span asp-validation-for="Category.Name" class="text-danger"></span></div>
+            <input asp-for="Category.Name" />
+        </div>
+        <div>
+            <input type="submit" value="Сохранить" class="btn btn-warning" />
+            <a asp-action="Index" class="btn btn-danger">Отмена</a>
+        </div>
+    </form>
+</div>
+
