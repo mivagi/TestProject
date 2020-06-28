@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace TestProject.Data.Models
 {
+    //Товар который продается на сайте
     public class Car
     {
         public int Id { get; set; }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TestProject.Data.Interfaces;
 using TestProject.Data.Models;
@@ -15,6 +16,11 @@ namespace TestProject.Controllers
         public OrderController(IOrders orderRep)
         {
             this.orderRep = orderRep;
+        }
+        [Authorize]
+        public IActionResult List()
+        {
+            return View(orderRep.GetAllOrders);
         }
         public IActionResult Checkout()
         {
@@ -33,6 +39,12 @@ namespace TestProject.Controllers
         public IActionResult Complete()
         {
             return View();
+        }
+        [HttpPost]
+        public IActionResult DeleteOrder(int id)
+        {
+            orderRep.DeleteOrder(id);
+            return RedirectToAction("List");
         }
     }
 }

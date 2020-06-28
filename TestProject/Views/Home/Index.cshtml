@@ -9,9 +9,9 @@
         {
         <div class="col-4">
             <img src="@car.Img" class="img-thumbnail" />
-            <h3>Model: @car.Name</h3>
-            <h4>Price: @car.Price.ToString("c")</h4>
-            <a asp-action="AddItem" asp-controller="Cart" asp-route-id="@car.Id" class="btn btn-warning">Add To Cart</a>
+            <h3>Модель: @car.Name</h3>
+            <h4>Цена: @car.Price.ToString("c")</h4>
+            <a asp-action="AddItem" asp-controller="Cart" asp-route-id="@car.Id" class="btn btn-warning">Добавить в корзину</a>
         </div>
         }
     </div>

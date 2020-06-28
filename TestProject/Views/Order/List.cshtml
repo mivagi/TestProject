@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewData["Title"] = "List";
+}
+
+<div class="container">
+    <table class="table">
+        <tr><th>Имя</th><th>Фамилия</th><th>Email</th><th colspan="4">Детали</th></tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>Модель</td>
+                <td>Цена</td>
+                <td>Количество</td>
+                <td>
+                    <form method="post" asp-action="DeleteOrder">
+                        <input type="hidden" value="@item.Id" name="Id"/>
+                        <input type="submit" value="Удалить" class="btn btn-danger btn-sm"/>
+                    </form>
+                </td>
+            </tr>
+            @foreach(var car in item.OrderItems)
+            {
+                <tr>
+                    <td colspan="3"></td>
+                    <td>@car.Name</td>
+                    <td>@car.Price</td>
+                    <td>@car.Quantity</td>
+                    <td></td>
+                </tr>
+            }
+        }
+    </table>
+</div>
+

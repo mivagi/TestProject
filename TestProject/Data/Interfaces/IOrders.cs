@@ -10,5 +10,6 @@ namespace TestProject.Data.Interfaces
     {
         IEnumerable<Order> GetAllOrders { get; }
         void SaveOrder(Order order);
+        void DeleteOrder(int id);
     }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace TestProject.Data.Models
 {
+    //Категории товара
     public class Category
     {
         public int Id { get; set; }

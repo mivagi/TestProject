@@ -9,6 +9,7 @@ using TestProject.Data.Models;
 
 namespace TestProject.Data
 {
+    //Класс для взаимодействия с EntityFrameworkCore
     public class AppDbContent : IdentityDbContext<IdentityUser>
     {
         public AppDbContent(DbContextOptions<AppDbContent> options) : base(options)

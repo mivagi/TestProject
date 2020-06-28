@@ -7,6 +7,7 @@ using TestProject.Data.Models;
 
 namespace TestProject.Data
 {
+    //Класс заполняющий базу данных данными
     public class DbObject
     {
         public static void Initial(AppDbContent content)

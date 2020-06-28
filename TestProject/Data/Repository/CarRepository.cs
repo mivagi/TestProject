@@ -8,6 +8,7 @@ using TestProject.Data.Models;
 
 namespace TestProject.Data.Repository
 {
+    //Класс для работы с таблицей Cars в базе данных
     public class CarRepository : IAllCars
     {
         private readonly AppDbContent content;

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace TestProject.Data.Models
 {
+    //Свойства в которых будет храниться товар пока он находится в корзине
     public class CartItem
     {
         public int Id { get; set; }

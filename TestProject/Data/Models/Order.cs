@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace TestProject.Data.Models
 {
+    //Свойства в которые записываются данные о заказчике
     public class Order
     {
         [BindNever]
