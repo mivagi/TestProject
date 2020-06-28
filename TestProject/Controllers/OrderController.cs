@@ -12,10 +12,12 @@ namespace TestProject.Controllers
     public class OrderController : Controller
     {
         private readonly IOrders orderRep;
+        private readonly Cart cart;
 
-        public OrderController(IOrders orderRep)
+        public OrderController(IOrders orderRep, Cart cart)
         {
             this.orderRep = orderRep;
+            this.cart = cart;
         }
         [Authorize]
         public IActionResult List()
@@ -38,6 +40,7 @@ namespace TestProject.Controllers
         }
         public IActionResult Complete()
         {
+            cart.ClearCart();
             return View();
         }
         [HttpPost]

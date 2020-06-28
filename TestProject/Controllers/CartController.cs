@@ -33,14 +33,10 @@ namespace TestProject.Controllers
             
             return RedirectToAction("CartIndex");
         }
-        //private Cart GetCart()
-        //{
-        //    Cart cart = HttpContext.Session.GetJson<Cart>("cartId") ?? new Cart();
-        //    return cart;
-        //}
-        //private void SaveCart(Cart cart)
-        //{
-        //    HttpContext.Session.SetJson("cartId", cart);
-        //}
+        public IActionResult RemoveCart(int id)
+        {
+            cart.RemoveCart(id);
+            return RedirectToAction("CartIndex");
+        }
     }
 }

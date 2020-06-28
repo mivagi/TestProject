@@ -33,7 +33,7 @@ namespace TestProject.Data
         public static async Task InitialazeIdentity(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             string adminName = "admin";
-            string adminPassword = "!Q2w3e";
+            string adminPassword = "!Q2w3e4r";
 
             if(await roleManager.FindByNameAsync("admin") == null)
             {

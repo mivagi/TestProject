@@ -210,6 +210,7 @@ namespace TestProject.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     Quantity = table.Column<int>(nullable: false),
+                    Price = table.Column<int>(nullable: false),
                     CarId = table.Column<int>(nullable: true),
                     OrderId = table.Column<int>(nullable: false)
                 },

@@ -40,5 +40,16 @@ namespace TestProject.Data.Models
             Session.SetJson("CartId", this);
         }
         public virtual IEnumerable<CartItem> Lines => cartCollection;
+        public void RemoveCart(int id)
+        {
+            var cart = Lines.FirstOrDefault(p => p.Id == id);
+            cartCollection.Remove(cart);
+            Session.SetJson("CartId", this);
+        }
+        public void ClearCart()
+        {
+            cartCollection.Clear();
+            Session.SetJson("CartId", this);
+        }
     }
 }
