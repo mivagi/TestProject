@@ -1,0 +1,30 @@
+﻿@model Car
+@{
+    ViewData["Title"] = "OneCar";
+}
+
+<h1 class="text-center">@Model.Name</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <img src="@Model.Img1" class="img-thumbnail" />
+        </div>
+        <div class="col-4">
+            <div><img src="@Model.Img2" class="img-thumbnail" /></div><br />
+            <div><img src="@Model.Img3" class="img-thumbnail" /></div>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <tr><th>Модель</th><td>@Model.Name</td></tr>
+            <tr><th>Кузов</th><td>@Model.Body</td></tr>
+            <tr><th>Привод</th><td>@Model.Drive</td></tr>
+            <tr><th>Разгон до 100км/ч</th><td>@Model.Racing.ToString("f") сек</td></tr>
+            <tr><th>Максимальная скорость</th><td>@Model.MaxSpeed км/ч</td></tr>
+            <tr><th>Цена</th><td>@Model.Price.ToString("c")</td></tr>
+            <tr><th></th><td></td></tr>
+        </table>
+    </div>
+    <div><a asp-action="AddItem" asp-controller="Cart" asp-route-id="@Model.Id" class="btn btn-warning btn-sm">Добавить в корзину</a></div>
+</div>
+

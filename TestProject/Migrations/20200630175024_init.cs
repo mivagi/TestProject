@@ -187,8 +187,14 @@ namespace TestProject.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
-                    Img = table.Column<string>(nullable: true),
                     Price = table.Column<int>(nullable: false),
+                    MaxSpeed = table.Column<int>(nullable: false),
+                    Racing = table.Column<double>(nullable: false),
+                    Drive = table.Column<string>(nullable: true),
+                    Body = table.Column<string>(nullable: true),
+                    Img1 = table.Column<string>(nullable: true),
+                    Img2 = table.Column<string>(nullable: true),
+                    Img3 = table.Column<string>(nullable: true),
                     CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>

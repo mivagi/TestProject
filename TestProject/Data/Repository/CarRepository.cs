@@ -29,7 +29,7 @@ namespace TestProject.Data.Repository
             {
                 Car newCar = content.Cars.FirstOrDefault(p => p.Id == car.Id);
                 newCar.Name = car.Name;
-                newCar.Img = car.Img;
+                newCar.Img1 = car.Img1;
                 newCar.Price = car.Price;
                 newCar.CategoryId = car.CategoryId;
                 newCar.Category = car.Category;
@@ -45,6 +45,11 @@ namespace TestProject.Data.Repository
                 content.Cars.Remove(car);
                 content.SaveChanges();
             }
+        }
+
+        public Car GetOneCar(int id)
+        {
+            return content.Cars.FirstOrDefault(p => p.Id == id);
         }
     }
 }

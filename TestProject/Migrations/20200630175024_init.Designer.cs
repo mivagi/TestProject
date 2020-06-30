@@ -10,7 +10,7 @@ using TestProject.Data;
 namespace TestProject.Migrations
 {
     [DbContext(typeof(AppDbContent))]
-    [Migration("20200628171817_init")]
+    [Migration("20200630175024_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -224,17 +224,35 @@ namespace TestProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("Body")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Img")
+                    b.Property<string>("Drive")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img1")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img2")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Img3")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("MaxSpeed")
+                        .HasColumnType("int");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
+
+                    b.Property<double>("Racing")
+                        .HasColumnType("float");
 
                     b.HasKey("Id");
 

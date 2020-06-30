@@ -19,5 +19,10 @@ namespace TestProject.Controllers
         {
             return View(allCars.Cars);
         }
+        public IActionResult OneCar(int id)
+        {
+            var car = allCars.GetOneCar(id);
+            return View(car);
+        }
     }
 }

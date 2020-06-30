@@ -15,8 +15,8 @@ namespace TestProject.Data.Mocks
             {
                 return new List<Car>
                 {
-                    new Car{Name = "Tesla", Price = 2000000, Img = "/img/tesla.jpg"},
-                    new Car{Name = "Mercedes", Price = 2200000, Img = "/img/mercedes.jpg"}
+                    new Car{Name = "Tesla", Price = 2000000, Img1 = "/img/tesla.jpg"},
+                    new Car{Name = "Mercedes", Price = 2200000, Img1 = "/img/mercedes.jpg"}
                 };
             }
         }

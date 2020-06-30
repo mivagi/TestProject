@@ -21,12 +21,71 @@ namespace TestProject.Data
             if (!content.Cars.Any())
             {
                 content.Cars.AddRange(
-                    new Car { Name = "Tesla", Price = 2100000, Img = "/img/tesla.jpg", CategoryId = 1 },
-                    new Car { Name = "Nissan", Price = 2200000, Img = "/img/nissan.jpg", CategoryId = 1 },
-                    new Car { Name = "Mercedes", Price = 2300000, Img = "/img/mercedes.jpg", CategoryId = 2 },
-                    new Car { Name = "BMW", Price = 2000000, Img = "/img/bmw.jpg", CategoryId = 2 },
-                    new Car { Name = "Fiesta", Price = 1900000, Img = "/img/fiesta.jpg", CategoryId = 2 }
-                    );
+                    new Car
+                    {
+                        Name = "Tesla Motors Roadster",
+                        Price = 7700000,
+                        Racing = 3.7f,
+                        MaxSpeed = 201,
+                        Body = "Кабриолет",
+                        Drive = "Задний",
+                        Img1 = "/img/tesla1.jpg",
+                        Img2 = "/img/tesla2.jpg",
+                        Img3 = "/img/tesla3.jpg",
+                        CategoryId = 1
+                    },
+                    new Car
+                    {
+                        Name = "Nissan Liaf",
+                        Price = 650000,
+                        Racing = 7.9f,
+                        MaxSpeed = 144,
+                        Body = "Хэтчбек",
+                        Drive = "Передний",
+                        Img1 = "/img/nissan1.jpg",
+                        Img2 = "/img/nissan2.jpg",
+                        Img3 = "/img/nissan3.jpg",
+                        CategoryId = 1
+                    },
+                    new Car
+                    {
+                        Name = "Mercedes Benz AMG GT 63",
+                        Price = 9490000,
+                        Racing = 3.4f,
+                        MaxSpeed = 310,
+                        Body = "Лифтбек",
+                        Drive = "Полный",
+                        Img1 = "/img/mercedes1.jpg",
+                        Img2 = "/img/mercedes2.jpg",
+                        Img3 = "/img/mercedes3.jpg",
+                        CategoryId = 2
+                    },
+                    new Car
+                    {
+                        Name = "BMW 8 Series",
+                        Price = 7610000,
+                        Racing = 3.7f,
+                        MaxSpeed = 250,
+                        Body = "Купе",
+                        Drive = "Полный",
+                        Img1 = "/img/bmw1.jpg",
+                        Img2 = "/img/bmw2.jpg",
+                        Img3 = "/img/bmw3.jpg",
+                        CategoryId = 2
+                    },
+                    new Car
+                    {
+                        Name = "Audi Q8",
+                        Price = 5900000,
+                        Racing = 5.9f,
+                        MaxSpeed = 250,
+                        Body = "Универсал",
+                        Drive = "Полный",
+                        Img1 = "/img/audi1.jpg",
+                        Img2 = "/img/audi2.jpg",
+                        Img3 = "/img/audi3.jpg",
+                        CategoryId = 2
+                    });
             }
             content.SaveChanges();
         }
